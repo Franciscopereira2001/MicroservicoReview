@@ -8,6 +8,9 @@ class Review(models.Model):
     parking_order_available = models.BooleanField()
     comment_review = models.TextField()
     
+    def __str__(self):
+        return str(self.order_id)
+    
 class Comment(models.Model):
     review = models.ForeignKey(Review, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)

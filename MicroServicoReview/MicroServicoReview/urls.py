@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework import routers
+from reviewPedidos.views import *
+
+router = routers.DefaultRouter()
+router.register(r'Review', ReviewViewSet)
+router.register(r'Comment', CommentViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include(router.urls))
 ]
