@@ -17,7 +17,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: MicroServicoReview
-    command: sh -c "cd MicroServicoReview && python3 manage.py migrate --noinput && python3 manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
+    command: sh -c "sleep 5 && cd MicroServicoReview && python3 manage.py migrate --noinput && python3 manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
     ports:
